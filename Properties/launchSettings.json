@@ -1,10 +1,10 @@
 ﻿{
-  "profiles": {
-    "SumatraBackupService": {
-      "commandName": "Project",
-      "environmentVariables": {
-        "DOTNET_ENVIRONMENT": "Development"
-      }
+    "profiles": {
+        "SumatraBackupService": {
+            "commandName": "Project",
+            "environmentVariables": {
+                "DOTNET_ENVIRONMENT": "Development"
+            }
+        }
     }
-  }
 }

@@ -49,9 +49,7 @@ namespace SumatraBackupService
                         _logger.LogInformation("Sumatra settings missing. Copying last backup");
                         File.Copy(syncFileBackupPath, syncFilePath, true);
                     }
-
                 }
-
             }
             else
             {
@@ -66,14 +64,13 @@ namespace SumatraBackupService
 
             _fileWatcher.Changed += (o, ea) =>
             {
-                bool fileRead = false;
+                var fileRead = false;
 
                 while (!fileRead)
                 {
                     try
                     {
                         fileContents = File.ReadAllText(syncFilePath);
-
                     }
                     catch (IOException)
                     {
@@ -81,6 +78,7 @@ namespace SumatraBackupService
                         Thread.Sleep(100);
                         continue;
                     }
+
                     fileRead = true;
 
                     hasMissingSettings = Regex.IsMatch(fileContents, matchRegEx);
@@ -94,7 +92,6 @@ namespace SumatraBackupService
                     {
                         _logger.LogInformation("Configuration file changed but settings empty. No action");
                     }
-
                 }
             };
 
